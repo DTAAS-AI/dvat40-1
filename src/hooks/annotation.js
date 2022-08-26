@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import utils from '~/libs/utils.js'
 import { useAnnotationStore } from '~/store/annotation.js'
 // import { useConfigurationStore } from '~/store/configuration.js'
-import { useConfigurationStore, DEFAULT_CONFIGURATION, CONFIGURATION_40_1, CONFIGURATION_40_2 } from '~/store/configuration.js'
+import { useConfigurationStore } from '~/store/configuration.js'
 import { useMainStore } from '~/store/index.js'
 
 export const useAnnotation = () => {
@@ -24,21 +24,13 @@ export const useAnnotation = () => {
       const version = obj.version;
       const info = obj.info;
       const annotation = obj.annotation;
-      // config -> project에 따라 달리 불러오도록 수정
-      let config = obj.config;
+      const config = obj.config;
       // version
       if (version !== PACKAGE_VERSION) {
         utils.notify('Version mismatch, weird stuff is likely to happen! ' + version + ' != ' + PACKAGE_VERSION,
           'warning')
       }
-      // config -> project에 따라 달리 불러오도록 수정
-      if (info.project === '40-1'){
-        config = CONFIGURATION_40_1
-      } else if (info.project === '40-2'){
-        config = CONFIGURATION_40_2
-      } else {
-        config = DEFAULT_CONFIGURATION
-      }
+      // config
       configurationStore.importConfig(config)
       // annotation
       annotationStore.importAnnotation(annotation)

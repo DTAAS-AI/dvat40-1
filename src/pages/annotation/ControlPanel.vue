@@ -72,9 +72,9 @@
       </q-item>
     </div>
     <div>
-      <q-item dense>
+      <!-- <q-item dense>
         <q-item-section class="text-center">Project 선택</q-item-section>
-      </q-item>
+      </q-item> -->
       <!-- <q-item>
         <q-item-section>
           <q-select
@@ -88,7 +88,7 @@
           ></q-select>
         </q-item-section>
       </q-item> -->
-      <q-item>
+      <!-- <q-item>
         <q-item-section>
           <q-select
               label="Project"
@@ -100,7 +100,7 @@
               :options="projectSelect"
           ></q-select>
         </q-item-section>
-      </q-item>
+      </q-item> -->
       <q-item v-if="annotationStore.mode === 'skeleton'">
         <q-item-section>
           <q-select
@@ -549,6 +549,6 @@ const videoPlaybackRateOptions = [
 
 // project option
 
-const projectSelect = ["40-1", "40-2"]
+// const projectSelect = ["40-1", "40-2"]
 
 </script>

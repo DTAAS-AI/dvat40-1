@@ -12,7 +12,7 @@ const DEFAULT_ANNOTATION = {
     name: "Motion Capture Dataset",
     creator: "Dtaas Consortium",
     date_created: "2022/06/03",
-    project: 'Select Project' // '40-1', '40-2'
+    project: '40-1' // '40-1', '40-2'
   },
   video: {
     src: undefined,
