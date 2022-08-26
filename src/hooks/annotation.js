@@ -24,14 +24,15 @@ export const useAnnotation = () => {
       const version = obj.version;
       const info = obj.info;
       const annotation = obj.annotation;
-      const config = obj.config;
+      // config 고정
+      // const config = obj.config;
       // version
       if (version !== PACKAGE_VERSION) {
         utils.notify('Version mismatch, weird stuff is likely to happen! ' + version + ' != ' + PACKAGE_VERSION,
           'warning')
       }
       // config
-      configurationStore.importConfig(config)
+      // configurationStore.importConfig(config)
       // annotation
       annotationStore.importAnnotation(annotation)
       utils.notify('Annotation load successfully!', 'positive')
