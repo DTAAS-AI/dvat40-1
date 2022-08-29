@@ -15,13 +15,13 @@
       <div class="col-6 q-table__title">Actions</div>
       <q-space></q-space>
       <q-btn-group flat>
-        <q-btn
+        <!-- <q-btn
             size="sm"
             outline
             :icon="showFilter ? 'expand_more' : 'expand_less'"
             label="filter"
             @click="showFilter = !showFilter"
-        ></q-btn>
+        ></q-btn> -->
         <q-btn
             size="sm"
             outline
@@ -29,9 +29,9 @@
             label="add"
             @click="handleAdd"
         >
-          <q-tooltip>add current range (+)</q-tooltip>
+          <q-tooltip>동작 구간 라벨을 추가합니다.</q-tooltip>
         </q-btn>
-        <q-btn
+        <!-- <q-btn
             size="sm"
             outline
             icon="new_label"
@@ -39,7 +39,7 @@
             @click="handleAddAdvance"
         >
           <q-tooltip>add current range and advance for next</q-tooltip>
-        </q-btn>
+        </q-btn> -->
         <q-btn
             size="sm"
             outline
@@ -47,7 +47,7 @@
             label="clear"
             @click="handleClearAll"
         >
-          <q-tooltip>Bulk clear all actions</q-tooltip>
+          <q-tooltip>모든 동작 라벨을 삭제합니다.</q-tooltip>
         </q-btn>
       </q-btn-group>
       <div
@@ -114,6 +114,7 @@
           <q-input
               style="min-width: 100px;"
               v-model.number="props.row.start"
+              readonly
               dense
               borderless
               type="number"
@@ -125,6 +126,7 @@
           <q-input
               style="min-width: 100px;"
               v-model.number="props.row.end"
+              readonly
               dense
               borderless
               type="number"
