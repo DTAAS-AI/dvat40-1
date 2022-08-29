@@ -95,11 +95,20 @@
       </div>
     </template>
     <template v-slot:body="props">
-      <q-tr :class="{ 'bg-warning': props.row.end - props.row.start <= 0, 'bg-green-2': props.row === annotationStore.currentThumbnailAction}">
+      <q-tr :class="{ 'bg-warning': props.row.end - props.row.start <= 0, 'bg-warning': props.row.object === 0, 'bg-green-2': props.row === annotationStore.currentThumbnailAction}">
         <q-tooltip
+            class="bg-dark text-body2"
             anchor="top middle"
+            self="bottom middle" :offset="[0,0]"
             v-if="props.row.end - props.row.start <= 0"
-        >Duration should be greater than 0.
+        >동작 구간의 길이는 0보다 커야 합니다. 시작지점과 종료지점을 알맞게 지정해 주세요.
+        </q-tooltip>
+        <q-tooltip
+            class="bg-dark text-body2"
+            anchor="top middle"
+            self="bottom middle" :offset="[0,40]"
+            v-if="props.row.object === 0"
+        >적절한 동작 카테고리를 지정해주세요.
         </q-tooltip>
         <q-td auto-width>
           <q-input
@@ -123,9 +132,10 @@
               @mousewheel.prevent
           ></q-input>
         </q-td>
-        <q-td auto-width>
+        <!-- duration 제거 -->
+        <!-- <q-td auto-width>
           {{ utils.toFixed2(props.row.end - props.row.start) }}
-        </q-td>
+        </q-td> -->
         <!-- Select 방식 -->
         <!-- <q-td auto-width>
           <q-select
@@ -218,7 +228,7 @@
                 style="width: 100%"
                 @click="handleGoto(props.row)"
             >
-              <q-tooltip>Locate to the action</q-tooltip>
+              <q-tooltip>해당 구간으로 이동</q-tooltip>
             </q-btn>
             <q-btn
                 flat
@@ -227,7 +237,7 @@
                 style="width: 100%"
                 @click="handleSet(props.row)"
             >
-              <q-tooltip>Set current left / right frame as this action's start / end</q-tooltip>
+              <q-tooltip>현재 선택 구간에 맞추기</q-tooltip>
             </q-btn>
             <q-btn
                 flat
@@ -262,7 +272,7 @@ const columnList = [
   {
     name: 'start',
     align: 'center',
-    label: 'start',
+    label: 'start_frame',
     field: 'start',
     sortable: true,
     sort: (a, b, rowA, rowB) => a !== b ? a - b : rowA.end - rowB.end
@@ -270,16 +280,17 @@ const columnList = [
   {
     name: 'end',
     align: 'center',
-    label: 'end',
+    label: 'end_frame',
     field: 'end',
     sortable: true,
     sort: (a, b, rowA, rowB) => a !== b ? a - b : rowA.start - rowB.start
   },
-  {
-    name: 'duration',
-    align: 'center',
-    label: 'duration'
-  },
+  // duration 제거
+  // {
+  //   name: 'duration',
+  //   align: 'center',
+  //   label: 'duration'
+  // },
   {
     name: 'actor_id',
     align: 'center',

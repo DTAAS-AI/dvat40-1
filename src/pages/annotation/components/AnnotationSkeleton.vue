@@ -13,6 +13,7 @@
         alt="Logo"
     >
     <div class="text-h4">DVAT</div>
+    <div class="text-h7" style="margin-bottom: 5px;">Project 40-1</div>
     <VersionBadge/>
     <q-btn-group
         style="margin-top: 30px;"
@@ -25,13 +26,13 @@
           label="open video"
           @click="handleOpen"
       />
-      <q-btn
+      <!-- <q-btn
           outline
           icon="file_upload"
           color="primary"
           label="load annotation"
           @click="handleLoad"
-      />
+      /> -->
     </q-btn-group>
     <!-- <div style="margin-top: 20px;">
       <router-link

@@ -5,17 +5,21 @@ import utils from '~/libs/utils.js'
 import { useMainStore } from '~/store/index.js'
 import { usePreferenceStore } from '~/store/preference.js'
 import { ActionAnnotation, ObjectAnnotation, RegionAnnotation, SkeletonAnnotation } from '../libs/annotationlib.js'
+// moment library 추가
+import moment from 'moment'
 
 const DEFAULT_ANNOTATION = {
   info: {
     // project select 추가
     name: "Motion Capture Dataset",
     creator: "Dtaas Consortium",
-    date_created: "2022/06/03",
-    project: '40-1' // '40-1', '40-2'
+    date_created: moment().format('YYYY/MM/DD'),
+    project: '40-1', // '40-1', '40-2'
+    version: PACKAGE_VERSION
   },
   video: {
     src: undefined,
+    filename: undefined,
     fps: undefined,
     frames: undefined,
     duration: undefined,

@@ -12,7 +12,7 @@
         v-if="position === 'left'"
         class="absolute-top"
     />
-    <canvas
+    <!-- <canvas
         ref="canvas"
         style="inset: 0;"
         :style="{'cursor': cursor}"
@@ -27,8 +27,19 @@
         @touchstart.prevent="handleTouchstart"
         @touchmove.prevent="handleTouchmove"
         @touchend.prevent="handleTouchend"
+    /> -->
+    <canvas
+        ref="canvas"
+        style="inset: 0;"
+        :style="{'cursor': cursor}"
+        class="full-width block absolute"
+        :width="CANVAS_WIDTH"
+        :height="canvasHeight"
+        @touchstart.prevent="handleTouchstart"
+        @touchmove.prevent="handleTouchmove"
+        @touchend.prevent="handleTouchend"
     />
-    <q-btn
+    <!-- <q-btn
         v-if="position === 'left'"
         class="bg-blue-grey-1 text-black absolute"
         style="top: 5px; right: 5px;"
@@ -36,7 +47,7 @@
         flat
         :icon="mainStore.zoom ? 'zoom_out' : 'zoom_in'"
         @click="handleZoomClick"
-    ></q-btn>
+    ></q-btn> -->
     <div
         class="absolute bg-black text-white"
         v-if="actionList && actionList.length"

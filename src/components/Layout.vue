@@ -40,7 +40,7 @@
               class="vertical-middle"
               :to="'/'"
           >
-            DTAAS Video Annotation Tool
+            DTAAS Video Annotation Tool 40-1
           </router-link>
         </q-toolbar-title>
         <q-circular-progress
@@ -62,13 +62,13 @@
             Caching video frames. VideoLoader: {{ useV2 ? 'V2' : 'V1' }}.
           </q-tooltip>
         </q-circular-progress>
-        <q-btn
+        <!-- <q-btn
             :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
             flat
             round
             dense
             @click="$q.dark.toggle"
-        ></q-btn>
+        ></q-btn> -->
       </q-toolbar>
     </q-header>
     <Drawer></Drawer>

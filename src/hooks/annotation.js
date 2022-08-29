@@ -21,13 +21,14 @@ export const useAnnotation = () => {
       //   config
       // } = obj
       // 변수 선언부 개별 분리, 필요한 내용만 로드하도록 수정
-      const version = obj.version;
+      // version -> info.version으로 이동
+      // const version = obj.version;
       const info = obj.info;
       const annotation = obj.annotation;
       // config 고정
       // const config = obj.config;
       // version
-      if (version !== PACKAGE_VERSION) {
+      if (info.version !== PACKAGE_VERSION) {
         utils.notify('Version mismatch, weird stuff is likely to happen! ' + version + ' != ' + PACKAGE_VERSION,
           'warning')
       }
@@ -51,7 +52,7 @@ export const useAnnotation = () => {
     handleLoad: () => {
       if (annotationStore.hasVideo) {
         utils.confirm(
-          'Are you sure to load? This would override current data!'
+          '로드하시겠습니까? 현재 라벨링 데이터가 삭제되고 새로운 라벨링 데이터를 불러옵니다.'
         ).onOk(() => {
           loadAnnotationFromFile()
         })
@@ -60,20 +61,28 @@ export const useAnnotation = () => {
       }
     },
     handleSave: () => {
-      //프로젝트 미선택시 예외처리 추가
-      if (annotationStore.info.project === "Select Project") {
+      // appearanceid, default, duration 예외처리
+      // errorCount 추가
+      let errorCount = 0;
+      for (let i = 0; i < annotationStore.actionAnnotationList.length; i++){
+        if(annotationStore.actionAnnotationList[i].start >= annotationStore.actionAnnotationList[i].end || annotationStore.actionAnnotationList[i].object === 0){
+          errorCount++;
+        }
+      }
+      if (errorCount !== 0) {
         utils.confirm(
-          '프로젝트를 지정해주세요'
+          '라벨링 내용에 오류가 있습니다. 라벨링 내용을 확인해주세요'
         ).onOk(() => {
         })
       } else {
         utils.prompt(
           'Save',
-          'Enter annotation filename for saving',
-          'annotations').onOk(filename => {
+          '저장될 json파일 이름을 입력해주세요.',
+          `${annotationStore.video.filename.split('.').slice(0,-1).join('.')}`).onOk(filename => {
           const data = {
-            version: PACKAGE_VERSION,
-            // TODO : project info 추가
+            // version -> info 아래로 이동
+            // version: PACKAGE_VERSION,
+            // project info 추가
             info: annotationStore.info,
             annotation: annotationStore.exportAnnotation(),
             // config: configurationStore.exportConfig()
@@ -90,7 +99,8 @@ export const useAnnotation = () => {
     handleSubmit: () => {
       submitLoading.value = true
       const data = {
-        version: PACKAGE_VERSION,
+        // version -> info 아래로 이동
+        // version: PACKAGE_VERSION,
         annotation: annotationStore.exportAnnotation(),
         config: configurationStore.exportConfig()
       }

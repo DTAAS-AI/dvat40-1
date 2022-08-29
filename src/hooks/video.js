@@ -8,24 +8,26 @@ export const useVideo = () => {
   return {
     handleOpen: () => {
       if (annotationStore.hasVideo) {
-        utils.confirm('Are you sure to open a new video? You will LOSE all data!').onOk(() => {
+        utils.confirm('새로운 비디오 파일을 여시겠습니까? 저장하지 않은 모든 작업데이터가 지워집니다.').onOk(() => {
           annotationStore.reset()
-          utils.importVideo().then(({ type, videoSrc }) => {
+          utils.importVideo().then(({ type, videoSrc, filename }) => {
             mainStore.videoFormat = type
             annotationStore.video.src = videoSrc
+            annotationStore.video.filename = filename
             mainStore.drawer = false
           })
         })
       } else {
-        utils.importVideo().then(({ type, videoSrc }) => {
+        utils.importVideo().then(({ type, videoSrc, filename }) => {
           mainStore.videoFormat = type
           annotationStore.video.src = videoSrc
+          annotationStore.video.filename = filename
           mainStore.drawer = false
         })
       }
     },
     handleClose: () => {
-      utils.confirm('Are you sure to close? You will LOSE all data!').onOk(() => {
+      utils.confirm('작업을 종료하시겠습니까? 저장하지 않은 모든 작업데이터가 지워집니다.').onOk(() => {
         annotationStore.reset()
         mainStore.drawer = false
         mainStore.videoFormat = null

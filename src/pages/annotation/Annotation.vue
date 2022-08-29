@@ -6,12 +6,13 @@
   >
     <KeyframePanel/>
     <div class="row justify-center">
-      <div class="col-12 col-md">
+      <div class="col-12 col-md" style="margin: 5px;">
         <CanvasPanel position="left"/>
       </div>
-      <ControlPanel v-show="!mainStore.zoom"/>
+      <!-- <ControlPanel v-show="!mainStore.zoom"/> -->
       <div
           class="col-12 col-md"
+          style="margin: 5px;"
           v-show="!mainStore.zoom"
       >
         <CanvasPanel position="right"/>
