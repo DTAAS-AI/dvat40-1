@@ -1,6 +1,6 @@
 <template>
   <TableBase
-      title="Actions"
+      title="Action Description"
       storeKey="objectLabelData"
       :columnList="columnList"
       :importFunction="configurationStore.importObjectLabelData"

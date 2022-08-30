@@ -1,6 +1,6 @@
 <template>
   <TableBase
-      title="Categories"
+      title="Action Categories"
       storeKey="actionLabelData"
       :columnList="columnList"
       :importFunction="configurationStore.importActionLabelData"
@@ -80,7 +80,7 @@ const columnList = [
   {
     name: 'nObjects',
     align: 'center',
-    label: '#actions',
+    label: '#sub_actions',
     field: (row) => row.objects.length
   },
   {
