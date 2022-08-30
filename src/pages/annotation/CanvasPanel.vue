@@ -243,8 +243,8 @@ const actionIndicatorStyle = ref({
 // )
 const actionList = computed(
     () => annotationStore.actionAnnotationList.filter(action =>
-        currentFrame.value >= utils.time2index(action.start)
-        && currentFrame.value <= utils.time2index(action.end)
+        currentFrame.value >= action.start
+        && currentFrame.value <= action.end
     ).map(action => {
       return {
         name: configurationStore.objectLabelData.find(label => label.id === action.object).name,

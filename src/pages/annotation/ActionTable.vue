@@ -307,7 +307,7 @@ const columnList = [
   {
     name: 'object',
     align: 'center',
-    label: 'action',
+    label: 'action_description',
     field: 'object'
   },
   // {
@@ -333,8 +333,8 @@ const columnList = [
 // header
 const handleAdd = () => {
   annotationStore.actionAnnotationList.push(new ActionAnnotation(
-      utils.index2time(annotationStore.leftCurrentFrame),
-      utils.index2time(annotationStore.rightCurrentFrame),
+      annotationStore.leftCurrentFrame,
+      annotationStore.rightCurrentFrame,
       0,
       configurationStore.actionLabelData[0].id,
       configurationStore.actionLabelData[0].objects[0],
@@ -441,15 +441,15 @@ const handleActionInput = (row) => {
 /// operation
 const handleGoto = (row) => {
   if (typeof (row.start) === 'number') {
-    annotationStore.leftCurrentFrame = utils.time2index(row.start)
+    annotationStore.leftCurrentFrame = row.start
   }
   if (typeof (row.end) === 'number') {
-    annotationStore.rightCurrentFrame = utils.time2index(row.end)
+    annotationStore.rightCurrentFrame = row.end
   }
 }
 const handleSet = (row) => {
-  row.start = utils.index2time(annotationStore.leftCurrentFrame)
-  row.end = utils.index2time(annotationStore.rightCurrentFrame)
+  row.start = annotationStore.leftCurrentFrame
+  row.end = annotationStore.rightCurrentFrame
 }
 const handleDelete = (row) => {
   utils.confirm('Are you sure to delete this action?').onOk(() => {
