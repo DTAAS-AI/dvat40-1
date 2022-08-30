@@ -111,8 +111,8 @@ export const frameIndicator = () => {
       const colorList = []
       for (let i = 0; i < annotationStore.actionAnnotationList.length; i++) {
         const action = annotationStore.actionAnnotationList[i]
-        const startFrame = utils.time2index(action.start)
-        const endFrame = utils.time2index(action.end)
+        const startFrame = action.start
+        const endFrame = action.end
         frameList.push([startFrame, (endFrame - startFrame + 1)])
         // colorList.push(`linear-gradient(${action.color}, ${action.color})`)
         colorList.push(`linear-gradient(${configurationStore.objectLabelData.find(label => label.id === action.object).color}, ${configurationStore.objectLabelData.find(label => label.id === action.object).color})`)
