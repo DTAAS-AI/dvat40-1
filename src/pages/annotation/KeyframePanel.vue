@@ -47,11 +47,14 @@
           right-label-text-color="blue-grey-1"
           left-label-color="primary"
           right-label-color="primary"
-          :left-label-value="'L: ' + currentFrameRange.min + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.min)) + ' s'"
-          :right-label-value="'R: ' + currentFrameRange.max + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.max)) + ' s'"
+          :left-label-value="'L: ' + utils.toFixed2(utils.index2time(currentFrameRange.min)) + ' s'"
+          :right-label-value="'R: ' + utils.toFixed2(utils.index2time(currentFrameRange.max)) + ' s'"
           :model-value="currentFrameRange"
           @update:model-value="handleInput"
       />
+      <!-- currentFrameRange 제거
+          :left-label-value="'L: ' + currentFrameRange.min + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.min)) + ' s'"
+          :right-label-value="'R: ' + currentFrameRange.max + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.max)) + ' s'" -->
     </div>
     <!-- <q-btn-group flat>
       <q-btn

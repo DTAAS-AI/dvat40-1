@@ -15,8 +15,8 @@ export const useAnnotation = () => {
 
   const importAdapter = (data) => {
     data.actionAnnotationList.map(label => {
-      label.start = label.start_frame;
-      label.end = label.end_frame;
+      label.start = label.start_frame / 6;
+      label.end = label.end_frame / 6;
       delete label.start_frame;
       delete label.end_frame;
     })
@@ -24,8 +24,8 @@ export const useAnnotation = () => {
   }
   const exportAdapter = (data) => {
     data.actionAnnotationList.map(label => {
-      label.start_frame = label.start;
-      label.end_frame = label.end;
+      label.start_frame = label.start * 6;
+      label.end_frame = label.end * 6;
       delete label.start;
       delete label.end;
     })
@@ -55,7 +55,7 @@ export const useAnnotation = () => {
       // config
       // configurationStore.importConfig(config)
       // annotation
-      // TODO : adapter here
+      // adapter 추가
       let adoptAnnotation = deepClone(annotation)
       importAdapter(adoptAnnotation)
       annotationStore.importAnnotation(adoptAnnotation)
@@ -113,7 +113,6 @@ export const useAnnotation = () => {
           // data exportAdapter 추가 -> 형식에 맞게 export data 변형
           let adoptedExportData = deepClone(data)
           exportAdapter(adoptedExportData.annotation)
-          console.log(adoptedExportData);
           exportFile(
             filename + '.json',
             new Blob([JSON.stringify(adoptedExportData)]),

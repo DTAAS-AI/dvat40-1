@@ -6,7 +6,7 @@ import { reactive, toRefs, watch } from 'vue'
 const LS_KEY = 'preferenceData'
 const DEFAULT_PREFERENCE = {
   sensitivity: Platform.has.touch ? 10 : 5,
-  defaultFps: 60,
+  defaultFps: 10,
   // defaultFpk: 60,
   decoder: 'auto', // auto, v1, v2
   objects: false,

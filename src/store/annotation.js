@@ -20,6 +20,7 @@ const DEFAULT_ANNOTATION = {
   video: {
     src: undefined,
     filename: undefined,
+    code: undefined,
     fps: undefined,
     frames: undefined,
     duration: undefined,
