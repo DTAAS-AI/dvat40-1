@@ -10,7 +10,8 @@ export default defineConfig({
   base: '',
   server: {
     host: '0.0.0.0',
-    open: true
+    open: true,
+    port: 4001
   },
   publicDir: 'public',
   resolve: {
