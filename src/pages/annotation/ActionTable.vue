@@ -335,7 +335,7 @@ const handleAdd = () => {
   annotationStore.actionAnnotationList.push(new ActionAnnotation(
       annotationStore.leftCurrentFrame,
       annotationStore.rightCurrentFrame,
-      0,
+      parseInt(annotationStore.video.filename.split('_').slice(3,4)) || 0,
       configurationStore.actionLabelData[0].id,
       configurationStore.actionLabelData[0].objects[0],
       // configurationStore.actionLabelData[0].color,
