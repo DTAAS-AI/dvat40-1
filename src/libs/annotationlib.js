@@ -711,6 +711,7 @@ class SkeletonAnnotation extends Annotation {
   }
 }
 
+// TODO : adapter 여기로 통합하기
 class ActionAnnotation {
   /**
    * Constructor
@@ -719,8 +720,6 @@ class ActionAnnotation {
    * @param actor_id
    * @param action
    * @param object
-  //  * @param color
-  //  * @param description
    */
   constructor (
     // start, end = null, action = null, object = null, color = null, description = null) {

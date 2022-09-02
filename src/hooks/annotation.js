@@ -31,6 +31,7 @@ export const useAnnotation = () => {
       delete label.start;
       delete label.end;
     })
+    delete data.video.src;
     data.video.fps = 60;
     data.video.frames = data.video.frames * 6;
     return data
