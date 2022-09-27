@@ -29,7 +29,9 @@ const handleLoadeddata = (event) => {
   if (!annotationStore.video.width) annotationStore.video.width = event.target.videoWidth
   if (!annotationStore.video.height) annotationStore.video.height = event.target.videoHeight
   if (!annotationStore.video.fps) annotationStore.video.fps = preferenceStore.defaultFps
-  if (!annotationStore.video.frames) annotationStore.video.frames = Math.round(
+  // round -> floor 변경
+  // if (!annotationStore.video.frames) annotationStore.video.frames = Math.round(
+  if (!annotationStore.video.frames) annotationStore.video.frames = Math.floor(
       annotationStore.video.fps * annotationStore.video.duration)
   // const keyframeList = []
   // if (annotationStore.keyframeList.length === 0) {
