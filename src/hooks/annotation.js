@@ -17,6 +17,11 @@ export const useAnnotation = () => {
     data.actionAnnotationList.map(label => {
       label.start = label.start_frame / 6;
       label.end = label.end_frame / 6;
+      // object <- action_scenario
+      if (label.hasOwnProperty('action_scenario')){
+        label.object = label.action_scenario;
+        delete label.action_scenario;
+      }
       delete label.start_frame;
       delete label.end_frame;
     })
