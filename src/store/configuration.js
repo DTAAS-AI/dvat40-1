@@ -330,7 +330,7 @@ export const DEFAULT_CONFIGURATION = {
         },
         {
             "id": 53,
-            "name": "USB 꽂기하기",
+            "name": "USB 꽂기",
             "color": "#95c720",
             "code": "A51"
         },
@@ -752,7 +752,7 @@ export const DEFAULT_CONFIGURATION = {
             "name": "코팅기 사용하기",
             "color": "#752424",
             "objects": [
-                63
+                62
             ]
         },
         {
@@ -760,7 +760,7 @@ export const DEFAULT_CONFIGURATION = {
             "name": "계수기 사용하기",
             "color": "#8f08a1",
             "objects": [
-                0
+                63
             ]
         },
         {
