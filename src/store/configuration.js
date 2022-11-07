@@ -294,7 +294,7 @@ export const DEFAULT_CONFIGURATION = {
         },
         {
             "id": 47,
-            "name": "키보드 조작하기",
+            "name": "키보드 조작",
             "color": "#d66c00",
             "code": "A45"
         },
@@ -306,7 +306,7 @@ export const DEFAULT_CONFIGURATION = {
         },
         {
             "id": 49,
-            "name": "마우스 조작하기",
+            "name": "마우스 조작",
             "color": "#ad1ec9",
             "code": "A47"
         },
@@ -318,13 +318,13 @@ export const DEFAULT_CONFIGURATION = {
         },
         {
             "id": 51,
-            "name": "전원 버튼 조작 하기",
+            "name": "전원 버튼 조작",
             "color": "#1715ad",
             "code": "A49"
         },
         {
             "id": 52,
-            "name": "(상부 열고) 전원 버튼 조작하기",
+            "name": "(상부 열고) 전원 버튼 조작",
             "color": "#20d444",
             "code": "A50"
         },
@@ -342,7 +342,7 @@ export const DEFAULT_CONFIGURATION = {
         },
         {
             "id": 55,
-            "name": "모니터 조작하기",
+            "name": "모니터 조작",
             "color": "#7d6b4d",
             "code": "A53"
         },
