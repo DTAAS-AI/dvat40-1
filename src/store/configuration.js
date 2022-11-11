@@ -429,6 +429,36 @@ export const DEFAULT_CONFIGURATION = {
             "name": "짐 싣기",
             "color": "#cccf1f",
             "code": "A67"
+        },
+        {
+            "id": 70,
+            "name": "가져오기",
+            "color": "#7ba61a",
+            "code": "A68"
+        },
+        {
+            "id": 71,
+            "name": "가져가기",
+            "color": "#11a8fe",
+            "code": "A69"
+        },
+        {
+            "id": 72,
+            "name": "우유 스팀하고 닦기",
+            "color": "#c46651",
+            "code": "A70"
+        },
+        {
+            "id": 73,
+            "name": "상부 닫기",
+            "color": "#72b93f",
+            "code": "A71"
+        },
+        {
+            "id": 74,
+            "name": "장애물 피해가기",
+            "color": "#c557b0",
+            "code": "A72"
         }
     ],
     "actionLabelData": [
@@ -639,7 +669,8 @@ export const DEFAULT_CONFIGURATION = {
             "name": "커피머신 사용하기",
             "color": "#1b8c37",
             "objects": [
-                40
+                40,
+                72
             ]
         },
         {
@@ -647,7 +678,9 @@ export const DEFAULT_CONFIGURATION = {
             "name": "주전자 사용하기",
             "color": "#3924ad",
             "objects": [
-                41
+                41,
+                70,
+                71
             ]
         },
         {
@@ -778,7 +811,8 @@ export const DEFAULT_CONFIGURATION = {
             "color": "#fff200",
             "objects": [
                 66,
-                67
+                67,
+                74
             ]
         },
         {
@@ -788,6 +822,14 @@ export const DEFAULT_CONFIGURATION = {
             "objects": [
                 68,
                 69
+            ]
+        },
+        {
+            "id": 41,
+            "name": "노트북 상부 닫기",
+            "color": "#fd0706",
+            "objects": [
+                73
             ]
         }
     ],
