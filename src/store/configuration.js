@@ -624,7 +624,6 @@ export const DEFAULT_CONFIGURATION = {
             "name": "드럼 세탁기 문 열고 닫기",
             "color": "#961e6e",
             "objects": [
-                0,
                 31,
                 32
             ]
